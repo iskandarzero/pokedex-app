@@ -1,14 +1,14 @@
 <template>
-  <HomePage />
+  <SearchBar />
 </template>
 
 <script>
-import HomePage from './components/HomePage.vue'
+import SearchBar from './components/SearchBar.vue';
 
 export default {
   name: 'App',
   components: {
-    HomePage
-  }
+    SearchBar
+}
 }
 </script>
