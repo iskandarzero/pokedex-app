@@ -1,10 +1,12 @@
 <template>
-  <div v-for="(pokemon, index) in pokemons" v-bind:key="index">
-    <router-link :to="`/pokemon/${pokemon.name}`">
+  <div v-for="(pokemon, index) in pokemons" v-bind:key="index" class="pokemonCard">
+    <router-link :to="`/pokemon/${pokemon.name}`" class="link">
       <img v-bind:src="pokemon.sprites.front_default" />
-      <h3>{{ pokemon.name }}</h3>
+      <h2>{{ pokemon.name }}</h2>
     </router-link>
-    <p v-for="(type, index) in pokemon.types" :key="index">{{ type.type.name }}</p>
+    <div class="types">
+      <p v-for="(type, index) in pokemon.types" :key="index">{{ type.type.name }}</p>
+    </div>
   </div>
 </template>
 
@@ -15,3 +17,23 @@
     }
   }
 </script>
+
+<style lang="scss">
+  .pokemonCard {
+    display: flex;
+    flex-direction: column;
+    width: 130px;
+    margin: 30px;
+    .link {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .types {
+    display: flex;
+    justify-content: space-evenly;
+    
+    }
+  }
+</style>
