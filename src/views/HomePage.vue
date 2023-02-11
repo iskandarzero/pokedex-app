@@ -1,5 +1,5 @@
 <template>
-  <h1>Procure e capture seus Pokémon!</h1>
+  <h1>Procure e capture seus Pokémons!</h1>
   <SearchBar />
 </template>
 
@@ -11,3 +11,12 @@
     components: { SearchBar }
 }
 </script>
+
+<style lang="scss">
+  h1 {
+    margin-top: 170px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+</style>
