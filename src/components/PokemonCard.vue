@@ -1,8 +1,10 @@
 <template>
   <div v-for="(pokemon, index) in pokemons" v-bind:key="index">
-    <img v-bind:src="pokemon.sprites.front_default" />
-    <h3>{{ pokemon.name }}</h3>
-    <p v-for="(type, index) in pokemon.types" v-bind:key="index">{{ type.type.name }}</p>
+    <router-link :to="`/pokemon/${pokemon.name}`">
+      <img v-bind:src="pokemon.sprites.front_default" />
+      <h3>{{ pokemon.name }}</h3>
+    </router-link>
+    <p v-for="(type, index) in pokemon.types" :key="index">{{ type.type.name }}</p>
   </div>
 </template>
 
