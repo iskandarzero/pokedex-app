@@ -1,8 +1,8 @@
 <template>
-  <SearchBar />
+  <router-view/>
 </template>
 
-<script>
+<!-- <script>
 import SearchBar from './components/SearchBar.vue';
 
 export default {
@@ -11,4 +11,4 @@ export default {
     SearchBar
 }
 }
-</script>
+</script> -->
