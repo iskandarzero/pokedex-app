@@ -29,6 +29,9 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      img:hover {
+        width: 95px;
+      }
     }
     .types {
     display: flex;
