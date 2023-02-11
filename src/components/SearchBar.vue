@@ -1,5 +1,4 @@
 <template>
-  <h1>Procure e capture seus Pokémon!</h1>
   <p>
     <input placeholder="Bulbasaur" type="search" v-model="searchParam" />
   </p>
@@ -30,12 +29,16 @@
       async getEvolutionChain(specie) {
           const evolutions = await getEvolutionChain(specie.evolution_chain.url);
           const pokemon = await getPokemon(evolutions.chain.species.name);
-          const secondStage = await Promise.all(evolutions.chain.evolves_to.map(
-            async (evolution) => await getPokemon(evolution.species.name)));
-          const thirdStage = await Promise.all(evolutions.chain.evolves_to[0].evolves_to.map(
-            async (evolution) => await getPokemon(evolution.species.name)));
+          this.pokemons.push(pokemon)
+          if (evolutions.chain.evolves_to.length > 0) {
+            const secondStage = await Promise.all(evolutions.chain.evolves_to.map(
+              async (evolution) => await getPokemon(evolution.species.name)));
+            const thirdStage = await Promise.all(evolutions.chain.evolves_to[0].evolves_to.map(
+              async (evolution) => await getPokemon(evolution.species.name)));
 
-          this.pokemons.push(pokemon, ...secondStage, ...thirdStage);
+              this.pokemons.push(...secondStage, ...thirdStage);
+          }
+          
           this.addPokemon(this.pokemons);
       },
 
